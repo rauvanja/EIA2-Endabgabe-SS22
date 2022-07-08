@@ -24,6 +24,7 @@ body {
     width: 350px;
     height: 220px;
 }
+
 fieldset {
     border-radius: 0.5em;
     text-align: center;
@@ -71,6 +72,27 @@ fieldset {
     height: 640px;
     width: 900px;
     margin-right: 10px;
+}
+
+.row {
+    display: flex;
+    height: 90px;
+    width: 900px;
+}
+
+.field {
+    margin: 5px;
+    height: 65px;
+    width: 90px;
+    border: 3px solid rgba(93, 45, 17, 0.824);;
+    border-radius: 5px;
+}
+
+.state {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 #info {

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="farm.css">
+  <script src="main.js"></script>
+  <script src="plant.js"></script>
+  <script src="salad.js"></script>
+  <script src="potato.js"></script>
+  <script src="carrot.js"></script>
+  <script src="aubergine.ts"></script>
+  <script src="garlic.ts"></script>
+  
+  <title>My little Farm</title>
+</head>
+
+<body>
+  <!-- Einstellungen vor Spielbeginn -->
+  <div id="Screen1">
+    <!-- verschwindet wenn Start geklickt wird -->
+    <header>
+      <h1>My little Farm</h1>
+      <p>Choose your start capital and the variation of price</p>
+
+      <div id="form">
+        <fieldset>
+          <legend>Variation of price</legend>
+          <input type="radio" name="Price" id="1-3">
+          <label for="1-3">1 - 3€</label>
+
+          <input type="radio" name="Price" id="1-5">
+          <label for="1-5">1 - 5€</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Start capital</legend>
+          <span id="slider">
+            10€
+            <input type="range" name="Startcapital" id="startcapital" min="10" max="100" step="10" value="20">
+            100€
+          </span>
+        </fieldset>
+        <button type="button" id="start">START</button>
+      </div>
+    </header>
+  </div>
+
+
+  <div id="Screen2">
+    <!-- erscheint wenn Start geklickt wird -->
+    <!-- Gesamter Spielbereich -->
+    <div id="deck">
+      <!-- // Spielfeld mit 49 Feldern -->
+      <div id="playfield">
+        <!-- Reihen für Felder, Field wird in ts erstellt-->
+        <div class="row" id="row0"></div>
+                <div class="row" id="row1"></div>
+                <div class="row" id="row2"></div>
+                <div class="row" id="row3"></div>
+                <div class="row" id="row4"></div>
+                <div class="row" id="row5"></div>
+                <div class="row" id="row6"></div>
+      </div>
+
+      <!-- // Infofeld für Kapital/Setzlinge und Marktplatz -->
+      <div id="info">
+        <div id="storage">
+          <p>YOUR STORAGE</p>
+          <div class="items">
+            <!-- Gemüse Emojis -->
+            <img src="Emojis/carrot_1f955.png" alt="">
+            <img src="Emojis/Eggplant Emoji.png" alt="">
+            <img src="Emojis/garlic_1f9c4.png" alt="">
+            <img src="Emojis/leafy-green_1f96c.png" alt="">
+            <img src="Emojis/potato_1f954.png" alt="">
+            <!-- Düngen & Schädlinge bemkämpfen Emojis -->
+            <img src="Emojis/sparkles_2728.png" alt="">
+            <img src="Emojis/crossed-swords_2694-fe0f.png" alt="">
+          </div>
+        </div>
+
+
+        <div id="market">
+          <p>MARKETPLACE</p>
+          <div class="items">
+            <!-- Gemüse Emojis -->
+            <img src="Emojis/carrot_1f955.png" alt="">
+            <img src="Emojis/Eggplant Emoji.png" alt="">
+            <img src="Emojis/garlic_1f9c4.png" alt="">
+            <img src="Emojis/leafy-green_1f96c.png" alt="">
+            <img src="Emojis/potato_1f954.png" alt="">
+            <!-- Düngen & Schädlinge bemkämpfen Emojis -->
+            <img src="Emojis/sparkles_2728.png" alt="">
+            <img src="Emojis/crossed-swords_2694-fe0f.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
