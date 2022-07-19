@@ -190,18 +190,6 @@ fieldset {
     
     } */
 
-/*
-    mouse cursor
-    
-    body.salad{cursor:url(./Emojis/Salad.png)}
-    body.carrot{cursor:url(./Emojis/Carrot.png)}
-    body.eggplant{cursor:url(./Emojis/Eggplant.png)}
-    body.garlic{cursor:url(./Emojis/Garlic.png)}
-    body.potato{cursor:url(./Emojis/Potato.png)}
-    body.pestFight{cursor:url(./Emojis/pestFight.png)}
-    body.Dung{cursor:url(./Emojis/Dung.png)}
-    body.water{cursor:url(./Emojis/Water.png)}
-*/
 body.salad {
     cursor: url(./Emojis_35x35/Salad_35.png), pointer;
 }
@@ -277,16 +265,17 @@ img.fieldImage {
     margin-bottom: 10px;
 }
 
-/* ausklappbare Spielregeln
+/* ausklappbare Spielregeln */
 summary {
     color: white;
     padding: 0.3rem;
     display: block;
-    background: #4D3528;
+    background:rgb(15, 84, 30);
     padding-left: 2.2rem;
     position: relative;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 5px;
   }
   
   summary:before {
@@ -294,6 +283,7 @@ summary {
     border-width: .4rem;
     border-style: solid;
     border-color: transparent transparent transparent #fff;
+    border-radius: 5px;
     position: absolute;
     top: 0.4rem;
     left: 1rem;
@@ -302,20 +292,13 @@ summary {
     transition: .25s transform ease;
   }
 details {
-    position: absolute;
-
-    margin-top: 1%;
-    color: white;
-    width: 750px;
-    display: block;
-    background: #634434;
-    box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
     border-radius: 5px;
-    overflow: hidden;
+    background:  rgba(242, 235, 235, 0.9);
+
   }
 
     /* THE MAGIC 🧙‍♀️ */
-/* details[open] > summary:before {
+details[open] > summary:before {
         transform: rotate(90deg);
       }
       
@@ -333,4 +316,4 @@ details {
         font-weight: lighter;
         font-size: small;
         margin-left: 5px;
-    } */
+    }
