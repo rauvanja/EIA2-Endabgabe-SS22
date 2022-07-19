@@ -1,0 +1,336 @@
+/*
+Gemüsegarten-Simulator
+Vanja Katharina Rau, 262452, MKB6
+In Zusammenarbeit mit Aileen Akin
+Teilweise Zusammenarbeit mit Ronja Burger, Joscha Reuther
+*/
+
+
+/* # = id, . = class */
+
+h1 {
+    font-family: 'Georgia';
+    text-align: center;
+}
+
+header {
+    background-color: rgba(242, 235, 235, 0.9);
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+}
+
+body {
+
+    font-family: 'Helvetica';
+    background-image: url(BG.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 0.5em;
+    /* margin-top: 5em; */
+
+}
+
+#form {
+    background-color: rgba(242, 235, 235, 0.9);
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    padding: 10px;
+    margin-top: 2em;
+    width: 350px;
+    height: 220px;
+}
+
+fieldset {
+    border-radius: 0.5em;
+    text-align: center;
+    margin-left: 1em;
+    margin-top: 1.5em;
+    width: 300px;
+    height: 50px;
+}
+
+#start {
+    margin-top: 2em;
+
+}
+
+#Screen1 {
+    font-family: 'Helvetica';
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 8em;
+    justify-content: center;
+    display: grid;
+}
+
+
+#Screen2 {
+    display: none;
+}
+
+#deck {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    height: auto;
+    width: auto;
+    padding: 10px;
+}
+
+#playfield {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    background-color: rgba(242, 235, 235, 0.9);
+    height: 640px;
+    width: 750px;
+}
+
+.row {
+    display: flex;
+    height: 90px;
+    width: 750px;
+}
+
+.field {
+    height: 55px;
+    width: 60px;
+    border: 3px solid rgba(93, 45, 17, 0.824);
+    ;
+    border-radius: 5px;
+    margin: 13px;
+}
+
+/* .pbar {
+    right: 0;
+    height: 32px;
+    width: 32px;
+    background-color: white;
+    border-radius: 5px;
+    margin: -12px;
+} */
+
+#info {
+    position: absolute;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    background-color: rgba(242, 235, 235, 0.9);
+    margin-left: 780px;
+    height: 620px;
+    width: 530px;
+    padding: 10px;
+}
+
+#storage {
+    position: relative;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    background-color: rgba(242, 235, 235, 0.9);
+    height: 180px;
+    width: 520px;
+    margin-bottom: 10px;
+}
+
+#market {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(15, 84, 30);
+    background-color: rgba(242, 235, 235, 0.9);
+    height: 410px;
+    width: 520px;
+}
+
+#capital {
+    /*rechts oben neben Your Storage und mit Capital und Euro bezeichnen*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0.5em;
+    background-color: rgb(15, 84, 30);
+    text-align: center;
+    color: rgba(242, 235, 235);
+    height: 18px;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.items {
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid rgb(139, 90, 43);
+    border-radius: 5px;
+}
+
+/* .items {
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    margin: 1%;
+    padding: 1%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #aaaaaa;
+    transform: scale(1);
+    }
+    .items:hover {
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
+    
+    } */
+
+/*
+    mouse cursor
+    
+    body.salad{cursor:url(./Emojis/Salad.png)}
+    body.carrot{cursor:url(./Emojis/Carrot.png)}
+    body.eggplant{cursor:url(./Emojis/Eggplant.png)}
+    body.garlic{cursor:url(./Emojis/Garlic.png)}
+    body.potato{cursor:url(./Emojis/Potato.png)}
+    body.pestFight{cursor:url(./Emojis/pestFight.png)}
+    body.Dung{cursor:url(./Emojis/Dung.png)}
+    body.water{cursor:url(./Emojis/Water.png)}
+*/
+body.salad {
+    cursor: url(./Emojis_35x35/Salad_35.png), pointer;
+}
+
+body.carrot {
+    cursor: url(./Emojis_35x35/Carrot_35.png), pointer;
+}
+
+body.garlic {
+    cursor: url(./Emojis_35x35/Garlic_35.png), pointer;
+}
+
+body.eggplant {
+    cursor: url(./Emojis_35x35/Eggplant_35.png), pointer;
+}
+
+body.potato {
+    cursor: url(./Emojis_35x35/Potato_35.png), pointer;
+}
+
+body.pesticide {
+    cursor: url(./Emojis_35x35/PestFight_35.png), pointer;
+}
+
+body.dung {
+    cursor: url(./Emojis_35x35/Dung_35.png), pointer;
+}
+
+body.water {
+    cursor: url(./Emojis_35x35/Water_35.png), pointer;
+}
+
+.stockcounter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*in einer Reihe und die Counter rechts oben*/
+    height: 25px;
+    width: 25px;
+    background-color: rgb(139, 90, 43);
+    color: rgba(242, 235, 235);
+    border-radius: 5px;
+    margin: -12px;
+}
+
+#table1 {
+    margin: 10px;
+    width: 98%;
+}
+
+th {
+    text-align: left;
+}
+
+#table2 {
+    margin: 10px;
+    width: 70%;
+}
+
+p {
+    margin: 10px;
+}
+
+img {
+    height: 35px;
+    width: 35px;
+}
+
+img.fieldImage {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ausklappbare Spielregeln
+summary {
+    color: white;
+    padding: 0.3rem;
+    display: block;
+    background: #4D3528;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  summary:before {
+    content: '';
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  }
+details {
+    position: absolute;
+
+    margin-top: 1%;
+    color: white;
+    width: 750px;
+    display: block;
+    background: #634434;
+    box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+    /* THE MAGIC 🧙‍♀️ */
+/* details[open] > summary:before {
+        transform: rotate(90deg);
+      }
+      
+      
+      details summary::-webkit-details-marker {
+        display:none;
+      }
+      
+      details > ul {
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+      }
+    h3 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: lighter;
+        font-size: small;
+        margin-left: 5px;
+    } */

@@ -1,0 +1,212 @@
+<!-- /*
+Gemüsegarten-Simulator
+Vanja Katharina Rau, 262452, MKB6
+In Zusammenarbeit mit Aileen Akin
+Teilweise Zusammenarbeit mit Ronja Burger, Joscha Reuther
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="farm.css">
+  <script src="Plant/Plant.js"></script>
+  <script src="Plant/Salad.js"></script>
+  <script src="Plant/Potato.js"></script>
+  <script src="Plant/Carrot.js"></script>
+  <script src="Plant/Eggplant.js"></script>
+  <script src="Plant/Garlic.js"></script>
+  <script src="Product.js"></script>
+  <script src="Field.js"></script>
+  <script src="Market.js"></script>
+  <script src="main.js"></script>
+
+  <title>My little Farm</title>
+</head>
+
+
+<body>
+  <!-- Adjustment bevor play start -->
+  <div id="Screen1">
+    <!-- hide when clicked start -->
+
+    <header>
+      <h1>My little Farm</h1>
+      <p>Choose the variation of price and your start capital</p>
+    </header>
+
+    <form>
+      <div id="form">
+        <fieldset class="fsAdjustment">
+          <legend>Variation of price</legend>
+          <input type="radio" name="Price" id="1-3" value="3" checked="true">
+          <label for="3">€</label>
+          <input type="radio" name="Price" id="1-5" value="5">
+          <label for="5">€€€</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Start capital</legend>
+          <span id="slider">
+            10€
+            <input type="range" name="Startcapital" id="startcapital" min="10" max="100" step="10" value="20">
+            100€
+          </span>
+        </fieldset>
+
+        <button type="button" id="start">START</button>
+      </div>
+  </div>
+  </form>
+
+  <div id="Screen2">
+    <!--hide untill clicked start-->
+    <!-- Complete play area -->
+    <div id="deck">
+      <!-- playfield with 7 rows and 49 fields -->
+      <div id="playfield">
+        <!-- rows for field, fields created in ts-->
+        <div class="row" id="row0"></div>
+        <div class="row" id="row1"></div>
+        <div class="row" id="row2"></div>
+        <div class="row" id="row3"></div>
+        <div class="row" id="row4"></div>
+        <div class="row" id="row5"></div>
+        <div class="row" id="row6"></div>
+      </div>
+
+      <!-- // Infofield for capital & buyed seedlings/dung/pesticide and marketplace -->
+      <div id="info">
+        <div id="storage">
+          <p>YOUR STORAGE</p>
+          <div id="capital"></div>
+          <!--plant in fields for drag & drop-->
+          <div class="items"><img src="Emojis/Water.png" id="water1" alt="water"></div>
+          <!--water is endless-->
+          <div class="items"><img src="Emojis/Dung.png" id="dung1" alt="dung">
+            <div class="stockcounter" id="dungCounter"></div>
+          </div>
+          <div class="items"><img src="Emojis/PestFight.png" id="pesticide1" alt="pesticide">
+            <div class="stockcounter" id="pesticideCounter"></div>
+          </div>
+          <br>
+          <div class="items"><img src="Emojis/Salad.png" id="salad1" alt="salad">
+            <div class="stockcounter" id="saladCounter"></div>
+          </div>
+          <div class="items"><img src="Emojis/Potato.png" id="potato1" alt="potato">
+            <div class="stockcounter" id="potatoCounter"></div>
+          </div>
+          <div class="items"><img src="Emojis/Carrot.png" id="carrot1" alt="carrot">
+            <div class="stockcounter" id="carrotCounter"></div>
+          </div>
+          <div class="items"><img src="Emojis/Eggplant.png" id="eggplant1" alt="eggplant">
+            <div class="stockcounter" id="eggplantCounter"></div>
+          </div>
+          <div class="items"><img src="Emojis/Garlic.png" id="garlic1" alt="garlic">
+            <div class="stockcounter" id="garlicCounter"></div>
+          </div>
+        </div>
+
+        <!--spielregeln ausklappbar -->
+        <!-- <details>
+          <summary>Game Rules</summary>
+          <ul>
+            <li>Click on a Item on the Marketplace to purchase.</li>
+            <li>the item will be added to your storage</h3>
+            <li>to plant a seedling, click on the storage area. Then 1 click on the desired field, and 1 click to place
+              the seedling.</li>
+            <li>your seedling will have different needs, such as fertilizer and pesticides.</li>
+            <li>When all needs are met and the growing season is complete, your crop is immediately sold at the current
+              rate</li>
+            <li>however, if you water or fertilize too quickly, or worse, forget to care for them altogether, your
+              seedling will die. the field is emptied.</li>
+          </ul>
+        </details> -->
+
+
+        <div id="market">
+          <p>MARKETPLACE</p>
+
+          <table id="table1">
+            <!-- Table Market -->
+            <tr>
+              <th>Seedling</th>
+              <th>Buy</th>
+              <th>Sell</th>
+              <th>Growth Time</th>
+              <th>Water Need</th>
+              <th>Dung Need</th>
+            </tr>
+            <!-- Salad -->
+            <tr>
+              <td> <img src="Emojis/Salad.png" id="salad"></td>
+              <td id="priceBuySalad"></td>
+              <td id="priceSellSalad"></td>
+              <td>1,5min</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <!-- Potato -->
+            <tr>
+              <td> <img src="Emojis/Potato.png" id="potato"></td>
+              <td id="priceBuyPotato"></td>
+              <td id="priceSellPotato"></td>
+              <td>2min</td>
+              <td>2</td>
+              <td>1</td>
+            </tr>
+            <!-- Carrot -->
+            <tr>
+              <td> <img src="Emojis/Carrot.png" id="carrot"></td>
+              <td id="priceBuyCarrot"></td>
+              <td id="priceSellCarrot"></td>
+              <td>3min</td>
+              <td>3</td>
+              <td>2</td>
+            </tr>
+            <!-- Eggplant -->
+            <tr>
+              <td> <img src="Emojis/Eggplant.png" id="eggplant"></td>
+              <td id="priceBuyEggplant"></td>
+              <td id="priceSellEggplant"></td>
+              <td>4min</td>
+              <td>4</td>
+              <td>2</td>
+            </tr>
+            <!-- Garlic -->
+            <tr>
+              <td> <img src="Emojis/Garlic.png" id="garlic"></td>
+              <td id="priceBuyGarlic"></td>
+              <td id="priceSellGarlic"></td>
+              <td>5min</td>
+              <td>5</td>
+              <td>3</td>
+            </tr>
+          </table>
+          <br>
+          <!-- Table Dung & Pesticide -->
+          <table id="table2">
+            <tr>
+              <th>Dung</th>
+              <th>Price</th>
+              <th>Pesticide</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td> <img src="Emojis/Dung.png" id="dung"></td>
+              <td id="priceBuyDung"></td>
+              <td> <img src="Emojis/PestFight.png" id="pesticide"></td>
+              <td id="priceBuyPesticide"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
